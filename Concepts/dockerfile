@@ -1,5 +1,6 @@
 FROM amazonlinux
 RUN mkdir /app
 WORKDIR /app
-ADD sampletest.txt .
+ARG NAME=gopi
+ADD sampletest.txt ${NAME}.txt
 CMD [ "sleep", "200" ]

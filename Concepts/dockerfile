@@ -3,6 +3,7 @@ RUN mkdir /app
 WORKDIR /app
 # ENV RARA=raanu
 ARG NAME=gopi
+RUN rm -rf /usr/share/nginx/html/index.html
 ONBUILD COPY sampletest.html /usr/share/nginx/html/gopi.html
 EXPOSE 8080
 # CMD [ "sleep", "200" ]

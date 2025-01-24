@@ -1,0 +1,4 @@
+FROM amazonlinux
+RUN mkdir /app
+WORKDIR /app
+ADD sampletest.txt .

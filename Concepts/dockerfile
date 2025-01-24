@@ -1,6 +1,8 @@
-FROM nginx
+FROM alpinelinux
 RUN mkdir /app
 WORKDIR /app
-ARG NAME=gopi
-COPY sampletest.txt /usr/share/nginx/html/${NAME}.txt
+# ARG NAME=gopi
+# COPY sampletest.txt /usr/share/nginx/html/${NAME}.html
 # CMD [ "sleep", "200" ]
+CMD [ "google.com" ]
+ENTRYPOINT [ "ping","-c5" ]

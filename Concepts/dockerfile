@@ -1,6 +1,6 @@
-FROM amazonlinux
+FROM nginx
 RUN mkdir /app
 WORKDIR /app
 ARG NAME=gopi
-ADD sampletest.txt ${NAME}.txt
-CMD [ "sleep", "200" ]
+COPY sampletest.txt /usr/share/nginx/html/${NAME}.txt
+# CMD [ "sleep", "200" ]

@@ -1,8 +1,9 @@
-FROM almalinux:9
+FROM nginx 
 RUN mkdir /app
 WORKDIR /app
-ENV RARA=raanu
-# ARG NAME=gopi
-# COPY sampletest.txt /usr/share/nginx/html/${NAME}.html
-CMD [ "sleep", "200" ]
+# ENV RARA=raanu
+ARG NAME=gopi
+ONBUILD COPY sampletest.html /usr/share/nginx/html/${NAME}.html
+EXPOSE 8080
+# CMD [ "sleep", "200" ]
 # ENTRYPOINT [ "ping","-c5" ]

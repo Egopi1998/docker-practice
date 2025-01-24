@@ -1,16 +1,19 @@
-# FROM nginx 
-# RUN mkdir /app
-# WORKDIR /app
-# # ENV RARA=raanu
-# ARG NAME=gopi
-# RUN rm -rf /usr/share/nginx/html/index.html
+FROM nginx
+RUN adduser expense
+USER expense
+RUN mkdir /app
+WORKDIR /app
+ENV RARA=raanu
+ARG NAME=gopi
+RUN rm -rf /usr/share/nginx/html/index.html
 # ONBUILD COPY sampletest.html /usr/share/nginx/html/gopi.html
-# EXPOSE 8080
-# # CMD [ "sleep", "200" ]
+COPY sampletest.html /usr/share/nginx/html/${NAME}.html
+EXPOSE 8080
+CMD [ "sleep", "200" ]
 # # ENTRYPOINT [ "ping","-c5" ]
 
-FROM almalinux:9
-RUN dnf install nginx -y
-RUN rm -rf /usr/share/nginx/html/index.html
-ONBUILD COPY sampletest.html /usr/share/nginx/html/index.html
-CMD [ "nginx", "-g", "daemon off;"]
+# FROM almalinux:9
+# RUN dnf install nginx -y
+# RUN rm -rf /usr/share/nginx/html/index.html
+# ONBUILD COPY sampletest.html /usr/share/nginx/html/index.html
+# CMD [ "nginx", "-g", "daemon off;"]

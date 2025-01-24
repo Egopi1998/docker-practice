@@ -1,8 +1,8 @@
 FROM almalinux:9
 RUN mkdir /app
 WORKDIR /app
+ENV RARA=raanu
 # ARG NAME=gopi
 # COPY sampletest.txt /usr/share/nginx/html/${NAME}.html
-# CMD [ "sleep", "200" ]
-CMD [ "google.com" ]
-ENTRYPOINT [ "ping","-c5" ]
+CMD [ "sleep", "200" ]
+# ENTRYPOINT [ "ping","-c5" ]
